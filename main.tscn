@@ -1,0 +1,102 @@
+[gd_scene load_steps=11 format=3 uid="uid://c2mbdo8q5o78t"]
+
+[ext_resource type="PackedScene" uid="uid://cht1tph8658c6" path="res://wheel.tscn" id="1_t48x2"]
+[ext_resource type="Script" path="res://main.gd" id="1_x3jig"]
+[ext_resource type="Texture2D" uid="uid://bre7m67nvnmfh" path="res://art/r.svg" id="3_js6sy"]
+[ext_resource type="Texture2D" uid="uid://b618gx1ld8rry" path="res://art/x.svg" id="3_mir1x"]
+[ext_resource type="Texture2D" uid="uid://hpvbh7t2q8g6" path="res://art/x_hover.svg" id="4_obs6q"]
+[ext_resource type="Texture2D" uid="uid://ck3yu4c6m4mk" path="res://art/r_pressed.svg" id="4_wvtps"]
+[ext_resource type="Texture2D" uid="uid://b21binlaw1whh" path="res://art/r_hover.svg" id="5_tfodl"]
+[ext_resource type="Texture2D" uid="uid://d0w6lxs2lf4bv" path="res://art/p.svg" id="6_dn0te"]
+[ext_resource type="Texture2D" uid="uid://sdsu3fscs6v1" path="res://art/popmenu.svg" id="9_ia3gs"]
+[ext_resource type="Texture2D" uid="uid://bhtogfr0h6087" path="res://art/popmenu_hover.svg" id="10_u8cai"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_x3jig")
+
+[node name="wheel" parent="." instance=ExtResource("1_t48x2")]
+position = Vector2(531, 316)
+
+[node name="rotateButton" type="TextureButton" parent="."]
+offset_left = 17.0
+offset_top = -166.0
+offset_right = 140.0
+offset_bottom = -31.0
+texture_normal = ExtResource("3_js6sy")
+texture_pressed = ExtResource("4_wvtps")
+texture_hover = ExtResource("5_tfodl")
+stretch_mode = 6
+
+[node name="Point" type="TextureRect" parent="."]
+offset_left = -1.0
+offset_top = -166.0
+offset_right = 122.0
+offset_bottom = -31.0
+texture = ExtResource("6_dn0te")
+
+[node name="windowControl" type="Node2D" parent="."]
+
+[node name="fullButton" type="CheckButton" parent="windowControl"]
+visible = false
+offset_left = -70.0
+offset_right = -26.0
+offset_bottom = 24.0
+
+[node name="closeButton" type="TextureButton" parent="windowControl"]
+offset_left = -25.0
+offset_right = 23.0
+offset_bottom = 48.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("3_mir1x")
+texture_hover = ExtResource("4_obs6q")
+
+[node name="selectButton" type="TextureButton" parent="."]
+offset_left = 148.0
+offset_top = -168.0
+offset_right = 276.0
+offset_bottom = -40.0
+texture_normal = ExtResource("9_ia3gs")
+texture_hover = ExtResource("10_u8cai")
+
+[node name="PopupMenu" type="PopupMenu" parent="selectButton"]
+initial_position = 4
+theme_override_font_sizes/font_size = 30
+
+[node name="guideBG" type="ColorRect" parent="."]
+offset_right = 603.0
+offset_bottom = 338.0
+color = Color(0.843137, 0.843137, 0.843137, 1)
+
+[node name="Label" type="RichTextLabel" parent="guideBG"]
+layout_mode = 0
+offset_right = 542.0
+offset_bottom = 351.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/bold_italics_font_size = 60
+theme_override_font_sizes/italics_font_size = 60
+theme_override_font_sizes/mono_font_size = 60
+theme_override_font_sizes/normal_font_size = 60
+theme_override_font_sizes/bold_font_size = 60
+
+[node name="TextureButton" type="TextureButton" parent="guideBG"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("3_mir1x")
+texture_hover = ExtResource("4_obs6q")
+
+[node name="FileDialog" type="FileDialog" parent="."]
+title = "Open a Directory"
+size = Vector2i(800, 600)
+ok_button_text = "Select Current Folder"
+file_mode = 2
+access = 2
+
+[connection signal="button_down" from="rotateButton" to="." method="_on_rotate_button_button_down"]
+[connection signal="button_up" from="rotateButton" to="." method="_on_rotate_button_button_up"]
+[connection signal="pressed" from="rotateButton" to="." method="_on_rotate_button_pressed"]
+[connection signal="pressed" from="windowControl/closeButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="selectButton" to="." method="_on_select_button_pressed"]
+[connection signal="id_pressed" from="selectButton/PopupMenu" to="." method="_on_popup_menu_id_pressed"]
+[connection signal="pressed" from="guideBG/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="dir_selected" from="FileDialog" to="." method="_on_file_dialog_dir_selected"]
