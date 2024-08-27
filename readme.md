@@ -21,3 +21,9 @@ A wheel of fortune with clickable options
 每个 `# ` 开头的此行内容代表一个转盘选项，其后直到下一个 `# ` 都被视为转盘选项的详情，可以通过点击转盘上该选项的文字查看。
 
 示例：`/art/破冰游戏.md`
+
+# web version
+
+似乎web版无法读取本地文件，但仍可以通过手动输入粘贴文件内容代替
+
+[Start](chenyu76.github.io/program/WheelOfFortune/WheelOfFortune.html)
