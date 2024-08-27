@@ -1,3 +1,5 @@
+A wheel of fortune with clickable options
+
 # 一个选项可点击的godot幸运转盘
 
 通过文件保存转盘上的可选项，默认读取当前目录下.md文件，如果没有会弹出文件选择框。
