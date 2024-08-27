@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c2mbdo8q5o78t"]
+[gd_scene load_steps=13 format=3 uid="uid://c2mbdo8q5o78t"]
 
 [ext_resource type="PackedScene" uid="uid://cht1tph8658c6" path="res://wheel.tscn" id="1_t48x2"]
 [ext_resource type="Script" path="res://main.gd" id="1_x3jig"]
@@ -10,6 +10,13 @@
 [ext_resource type="Texture2D" uid="uid://d0w6lxs2lf4bv" path="res://art/p.svg" id="6_dn0te"]
 [ext_resource type="Texture2D" uid="uid://sdsu3fscs6v1" path="res://art/popmenu.svg" id="9_ia3gs"]
 [ext_resource type="Texture2D" uid="uid://bhtogfr0h6087" path="res://art/popmenu_hover.svg" id="10_u8cai"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_0qh6c"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_yvb3w"]
+events = [SubResource("InputEventKey_0qh6c")]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_x3jig")
@@ -82,15 +89,17 @@ theme_override_font_sizes/bold_font_size = 60
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+shortcut = SubResource("Shortcut_yvb3w")
 texture_normal = ExtResource("3_mir1x")
 texture_hover = ExtResource("4_obs6q")
 
 [node name="FileDialog" type="FileDialog" parent="."]
-title = "Open a Directory"
+title = "Open a File"
 size = Vector2i(800, 600)
-ok_button_text = "Select Current Folder"
-file_mode = 2
+ok_button_text = "Open"
+file_mode = 0
 access = 2
+use_native_dialog = true
 
 [connection signal="button_down" from="rotateButton" to="." method="_on_rotate_button_button_down"]
 [connection signal="button_up" from="rotateButton" to="." method="_on_rotate_button_button_up"]
@@ -100,3 +109,4 @@ access = 2
 [connection signal="id_pressed" from="selectButton/PopupMenu" to="." method="_on_popup_menu_id_pressed"]
 [connection signal="pressed" from="guideBG/TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="dir_selected" from="FileDialog" to="." method="_on_file_dialog_dir_selected"]
+[connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]

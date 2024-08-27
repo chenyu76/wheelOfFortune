@@ -17,7 +17,7 @@ var bg_speed = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	populate_md_files()
-	$wheel.initialize(["等待加载"])
+	$wheel.initialize(["Waiting"])
 	$wheel.press_button.connect(_on_wheel_button_pressed.bind())
 	$wheel.rotation = randf_range(0, 2*PI)
 	
@@ -100,6 +100,7 @@ func array_join(c: Array, s: String):
 		r += s + i
 	return r
 
+# 处理 file_path 的文件
 func parse_titles_from_file(file_path):
 	titles = []
 	title_contents = {}
@@ -155,9 +156,10 @@ func populate_md_files():
 		dir = DirAccess.open("res://")
 	if dir == null:
 		$FileDialog.visible = true
-	else:	
+	else:
 		process_file(dir)
 
+# 处理一个目录里的所有文件，目录需要是一个DirAccess
 func process_file(dir):
 	#var dir = DirAccess.open(dir_name)
 	dir.list_dir_begin()
@@ -167,19 +169,29 @@ func process_file(dir):
 			$selectButton/PopupMenu.add_item(file_name.substr(0,len(file_name)-3))
 		file_name = dir.get_next()
 	dir.list_dir_end()
-		
-		
-func _on_file_dialog_dir_selected(dir):
+	
+	# 没有可选项就弹出文件选择框
+	if $selectButton/PopupMenu.item_count == 0:
+		$FileDialog.visible = true
+
+# 选择目录
+func _on_file_dialog_dir_selected(d):
 	$FileDialog.visible = false
-	process_file(DirAccess.open(dir))
-		
+	process_file(DirAccess.open(d))
+
+# 选择文件
+func _on_file_dialog_file_selected(path: String) -> void:
+	$FileDialog.visible = false
+	parse_titles_from_file(path)
+	$wheel.initialize(titles)
+
 func _on_select_button_pressed():
 	$selectButton/PopupMenu.popup()  # 展开菜单
 
 func _on_popup_menu_id_pressed(id):
 	var file_name = $selectButton/PopupMenu.get_item_text(id)
 	print("Selected file: " + file_name)
-	# 在这里添加处理文件选择的逻辑
+	
 	parse_titles_from_file(file_name+ ".md")
 	$wheel.initialize(titles)
 
