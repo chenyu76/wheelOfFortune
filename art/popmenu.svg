@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="128"
-   height="128"
-   viewBox="0 0 33.866667 33.866667"
+   width="64"
+   height="64"
+   viewBox="0 0 16.933333 16.933333"
    version="1.1"
    id="svg1"
    sodipodi:docname="popmenu.svg"
@@ -23,11 +23,11 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
-     inkscape:zoom="3.1454851"
-     inkscape:cx="80.432745"
-     inkscape:cy="64.377988"
-     inkscape:window-width="1920"
-     inkscape:window-height="1124"
+     inkscape:zoom="2.6195759"
+     inkscape:cx="35.311059"
+     inkscape:cy="38.555859"
+     inkscape:window-width="1536"
+     inkscape:window-height="895"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -40,35 +40,15 @@
      id="layer1">
     <path
        id="rect1"
-       style="fill:#000000;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:round"
-       d="M 4.0659017 4.0659017 L 4.0659017 29.800765 L 21.691699 29.800765 L 21.691699 27.652576 L 6.214091 27.652576 L 6.214091 6.214091 L 27.652576 6.214091 L 27.652576 21.691699 L 29.800765 21.691699 L 29.800765 4.0659017 L 4.0659017 4.0659017 z " />
+       style="fill:#000000;fill-opacity:1;stroke-width:0.550003;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
+       d="M 2.0329165,2.0329165 V 14.900417 h 8.8129455 v -0.06537 -1.00873 -1.008729 H 4.001799 V 4.0501178 h 8.929735 v 6.7957452 h 0.894782 1.074101 V 2.0329165 Z" />
     <path
        id="rect1-2"
-       style="fill:#000000;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:round"
-       d="M 7.4414065,7.6629328 V 9.8111213 H 26.42526 V 7.6629328 Z" />
+       style="fill:#000000;stroke-width:0.295211;stroke-linecap:round;stroke-linejoin:round"
+       d="m 4.942934,4.9433488 v 2.0172015 h 7.047465 V 4.9433488 Z" />
     <path
        id="rect1-2-6"
-       style="fill:#000000;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:round"
-       d="m 7.4414064,11.856009 v 2.148188 H 26.42526 v -2.148188 z" />
-    <g
-       id="g4"
-       transform="rotate(135,22.055738,13.589716)"
-       style="fill:#000000">
-      <rect
-         style="fill:#000000;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:round"
-         id="rect4"
-         width="12.20013"
-         height="2.1870391"
-         x="21.666536"
-         y="0" />
-      <rect
-         style="fill:#000000;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:round"
-         id="rect4-5"
-         width="12.20013"
-         height="2.1870391"
-         x="0"
-         y="-33.866665"
-         transform="rotate(90)" />
-    </g>
+       style="fill:#000000;stroke-width:0.295211;stroke-linecap:round;stroke-linejoin:round"
+       d="M 4.9429341,8.0349058 V 10.052107 H 11.990399 V 8.0349058 Z" />
   </g>
 </svg>

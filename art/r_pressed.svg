@@ -24,10 +24,10 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      inkscape:zoom="1.4363815"
-     inkscape:cx="-37.594469"
-     inkscape:cy="-10.094811"
-     inkscape:window-width="1920"
-     inkscape:window-height="1124"
+     inkscape:cx="-37.942566"
+     inkscape:cy="-9.7467142"
+     inkscape:window-width="1536"
+     inkscape:window-height="895"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -41,14 +41,14 @@
      transform="translate(-1.8646882,-1.4524785)">
     <path
        id="path1"
-       style="fill:#ffb380;stroke-width:2.83972;stroke-linecap:round;stroke-linejoin:round"
+       style="fill:#00ccff;stroke-width:2.83972;stroke-linecap:round;stroke-linejoin:round"
        d="M 32.672736,1.4524785 A 30.899619,30.899619 0 0 0 1.8646882,31.08068 H 7.9224008 A 24.849475,24.849475 0 0 1 32.672736,7.5013862 24.849475,24.849475 0 0 1 57.522857,32.351509 24.849475,24.849475 0 0 1 34.730127,57.107713 v 5.99608 A 30.899619,30.899619 0 0 0 63.571772,32.351509 30.899619,30.899619 0 0 0 32.672736,1.4524785 Z" />
     <g
        id="g3"
        transform="matrix(4.0159792,-2.6124056,4.0159792,2.6124056,16.799623,59.873366)"
-       style="fill:#ffb380">
+       style="fill:#0088aa">
       <rect
-         style="fill:#ffb380;stroke-width:0.344266;stroke-linecap:round;stroke-linejoin:round"
+         style="fill:#0088aa;stroke-width:0.344266;stroke-linecap:round;stroke-linejoin:round"
          id="rect3"
          width="3.4287198"
          height="1.1391494"
@@ -57,7 +57,7 @@
          ry="0"
          rx="0" />
       <rect
-         style="fill:#ffb380;stroke-width:0.344266;stroke-linecap:round;stroke-linejoin:round"
+         style="fill:#0088aa;stroke-width:0.344266;stroke-linecap:round;stroke-linejoin:round"
          id="rect3-2"
          width="3.4287198"
          height="1.1391494"

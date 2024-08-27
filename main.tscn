@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c2mbdo8q5o78t"]
+[gd_scene load_steps=17 format=3 uid="uid://c2mbdo8q5o78t"]
 
 [ext_resource type="PackedScene" uid="uid://cht1tph8658c6" path="res://wheel.tscn" id="1_t48x2"]
 [ext_resource type="Script" path="res://main.gd" id="1_x3jig"]
@@ -10,6 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://d0w6lxs2lf4bv" path="res://art/p.svg" id="6_dn0te"]
 [ext_resource type="Texture2D" uid="uid://sdsu3fscs6v1" path="res://art/popmenu.svg" id="9_ia3gs"]
 [ext_resource type="Texture2D" uid="uid://bhtogfr0h6087" path="res://art/popmenu_hover.svg" id="10_u8cai"]
+[ext_resource type="Texture2D" uid="uid://dqrj7udr7ygb2" path="res://art/paste.svg" id="11_aofhv"]
+[ext_resource type="Texture2D" uid="uid://b1c7ppn036rsi" path="res://art/paste_hover.svg" id="12_uu2hv"]
+[ext_resource type="Texture2D" uid="uid://5iu6miqgwqg8" path="res://art/v.svg" id="13_7nlcs"]
+[ext_resource type="Texture2D" uid="uid://j82wk7d5awbk" path="res://art/v_hover.svg" id="14_4hgsg"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_0qh6c"]
 device = -1
@@ -41,19 +45,16 @@ offset_right = 122.0
 offset_bottom = -31.0
 texture = ExtResource("6_dn0te")
 
-[node name="windowControl" type="Node2D" parent="."]
+[node name="windowControl" type="HBoxContainer" parent="."]
+offset_right = 96.0
+offset_bottom = 48.0
 
 [node name="fullButton" type="CheckButton" parent="windowControl"]
-visible = false
-offset_left = -70.0
-offset_right = -26.0
-offset_bottom = 24.0
+layout_mode = 2
+button_pressed = true
 
 [node name="closeButton" type="TextureButton" parent="windowControl"]
-offset_left = -25.0
-offset_right = 23.0
-offset_bottom = 48.0
-scale = Vector2(0.5, 0.5)
+layout_mode = 2
 texture_normal = ExtResource("3_mir1x")
 texture_hover = ExtResource("4_obs6q")
 
@@ -68,6 +69,14 @@ texture_hover = ExtResource("10_u8cai")
 [node name="PopupMenu" type="PopupMenu" parent="selectButton"]
 initial_position = 4
 theme_override_font_sizes/font_size = 30
+
+[node name="pasteButton" type="TextureButton" parent="."]
+offset_left = 148.0
+offset_top = -168.0
+offset_right = 156.0
+offset_bottom = -160.0
+texture_normal = ExtResource("11_aofhv")
+texture_hover = ExtResource("12_uu2hv")
 
 [node name="guideBG" type="ColorRect" parent="."]
 offset_right = 603.0
@@ -85,13 +94,65 @@ theme_override_font_sizes/mono_font_size = 60
 theme_override_font_sizes/normal_font_size = 60
 theme_override_font_sizes/bold_font_size = 60
 
-[node name="TextureButton" type="TextureButton" parent="guideBG"]
+[node name="TextEdit" type="TextEdit" parent="guideBG"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_colors/current_line_color = Color(1, 1, 1, 1)
+theme_override_colors/background_color = Color(0.720467, 0.720468, 0.720467, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0.332881, 0.332881, 0.332881, 1)
+theme_override_colors/font_readonly_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/selection_color = Color(0.796243, 0.796243, 0.796243, 1)
+theme_override_colors/font_selected_color = Color(0.171689, 0.403971, 1, 1)
+theme_override_colors/caret_color = Color(0, 0, 0, 1)
+placeholder_text = "Enter options in wheel here"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="guideBG"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="TextureButton" type="TextureButton" parent="guideBG/HBoxContainer"]
+layout_mode = 2
 shortcut = SubResource("Shortcut_yvb3w")
 texture_normal = ExtResource("3_mir1x")
 texture_hover = ExtResource("4_obs6q")
+
+[node name="fontSizeChanger" type="HBoxContainer" parent="guideBG/HBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="guideBG/HBoxContainer/fontSizeChanger"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Change font size:"
+
+[node name="ButtonP" type="Button" parent="guideBG/HBoxContainer/fontSizeChanger"]
+layout_mode = 2
+text = "  -  "
+
+[node name="ButtonM" type="Button" parent="guideBG/HBoxContainer/fontSizeChanger"]
+layout_mode = 2
+text = "  +  "
+
+[node name="MarginContainer" type="MarginContainer" parent="guideBG/HBoxContainer/fontSizeChanger"]
+layout_mode = 2
+
+[node name="textConfirmer" type="HBoxContainer" parent="guideBG/HBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="confirmButton" type="TextureButton" parent="guideBG/HBoxContainer/textConfirmer"]
+layout_mode = 2
+texture_normal = ExtResource("13_7nlcs")
+texture_hover = ExtResource("14_4hgsg")
+
+[node name="pasteInfo" type="Label" parent="guideBG/HBoxContainer/textConfirmer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Write your 	content here."
 
 [node name="FileDialog" type="FileDialog" parent="."]
 title = "Open a File"
@@ -104,9 +165,14 @@ use_native_dialog = true
 [connection signal="button_down" from="rotateButton" to="." method="_on_rotate_button_button_down"]
 [connection signal="button_up" from="rotateButton" to="." method="_on_rotate_button_button_up"]
 [connection signal="pressed" from="rotateButton" to="." method="_on_rotate_button_pressed"]
+[connection signal="toggled" from="windowControl/fullButton" to="." method="_on_full_button_toggled"]
 [connection signal="pressed" from="windowControl/closeButton" to="." method="_on_close_button_pressed"]
 [connection signal="pressed" from="selectButton" to="." method="_on_select_button_pressed"]
 [connection signal="id_pressed" from="selectButton/PopupMenu" to="." method="_on_popup_menu_id_pressed"]
-[connection signal="pressed" from="guideBG/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="button_down" from="pasteButton" to="." method="_on_paste_button_button_down"]
+[connection signal="pressed" from="guideBG/HBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="button_down" from="guideBG/HBoxContainer/fontSizeChanger/ButtonP" to="." method="_on_button_p_button_down"]
+[connection signal="button_down" from="guideBG/HBoxContainer/fontSizeChanger/ButtonM" to="." method="_on_button_m_button_down"]
+[connection signal="button_down" from="guideBG/HBoxContainer/textConfirmer/confirmButton" to="." method="_on_confirm_button_button_down"]
 [connection signal="dir_selected" from="FileDialog" to="." method="_on_file_dialog_dir_selected"]
 [connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]
